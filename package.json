@@ -1,0 +1,63 @@
+{
+  "name": "typescript-boilerplate-2021",
+  "version": "0.3.0",
+  "description": "Boilerplate for a TypeScript library",
+  "author": "Chris Hager <chris@linuxuser.at>",
+  "repository": "https://github.com/metachris/typescript-boilerplate",
+  "license": "MIT",
+  "main": "./dist/tsc/main.js",
+  "types": "./dist/tsc/main.d.ts",
+  "browser": "./dist/esbuild/browser.js",
+  "bin": {
+    "my-cli-tool": "./dist/esbuild/cli.js"
+  },
+  "scripts": {
+    "start": "nodemon --exec ts-node --files src/main.ts",
+    "cli": "ts-node src/cli.ts",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "clean": "rm -rf dist build package",
+    "ts-node": "ts-node",
+    "docs": "typedoc --entryPoints src/main.ts",
+    "build": "tsc -p tsconfig.json",
+    "build-all": "yarn build && yarn esbuild-node && yarn esbuild-browser",
+    "esbuild-browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=dist/esbuild/browser.js",
+    "esbuild-browser:dev": "esbuild src/browser.ts --bundle --outfile=dist/esbuild/browser.js",
+    "esbuild-browser:watch": "esbuild src/browser.ts --bundle --watch --outfile=dist/esbuild/browser.js",
+    "esbuild-node": "esbuild src/cli.ts --bundle --platform=node --minify --sourcemap=external --outfile=dist/esbuild/cli.js",
+    "esbuild-node:dev": "esbuild src/cli.ts --bundle --sourcemap=external --outfile=dist/esbuild/cli.js",
+    "esbuild-node:watch": "esbuild src/cli.ts --bundle --watch --sourcemap=external --outfile=dist/esbuild/cli.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "esbuild": "^0.11.11",
+    "eslint": "^7.22.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.20.35",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^3.0.1",
+    "@types/config": "^0.0.38",
+    "@types/dotenv": "^8.2.0",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/mongoose": "^5.10.5",
+    "@types/socket.io": "^2.1.13",
+    "@types/validator": "^13.1.3",
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.4",
+    "socket.io": "^4.0.1",
+    "validator": "^13.5.2"
+  }
+}
