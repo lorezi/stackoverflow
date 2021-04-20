@@ -8,18 +8,23 @@ import catchAsync from "../utils/catchAsync";
 
 dotenv.config({ path: __dirname + "/.env" });
 
-const signToken = (id: Types.ObjectId) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET!, {
-    expiresIn: "24h",
-  });
+export const signToken = (id: Types.ObjectId): string => {
+  // Dirty hack to generate secret for testing purpose
+  return jwt.sign(
+    { id },
+    process.env.JWT_SECRET ? process.env.JWT_SECRET : "test",
+    {
+      expiresIn: "24h",
+    }
+  );
 };
 
-const createSendToken = (
+export const createSendToken = (
   user: IUser,
   statusCode: number,
   req: Request,
   res: Response
-) => {
+): void => {
   const token = signToken(user._id);
   const cookieExpiration = +process.env.JWT_COOKIE_EXPIRES_IN!;
 

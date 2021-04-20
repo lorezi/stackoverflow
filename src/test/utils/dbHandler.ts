@@ -1,21 +1,19 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 
-const mongoD = new MongoMemoryServer();
+const mongod = new MongoMemoryServer();
 
 /**
  * Connect to the in-memory database
  */
 export const connect = async (): Promise<void> => {
-  const uri = await mongoD.getUri();
-  await mongoose
-    .connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    })
-    .then(() => console.log("in-memory DB connected"));
+  const uri = await mongod.getUri();
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  });
 };
 
 /**
@@ -24,7 +22,7 @@ export const connect = async (): Promise<void> => {
 export const closeDatabase = async (): Promise<void> => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongoD.stop();
+  await mongod.stop();
 };
 
 /**

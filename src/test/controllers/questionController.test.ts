@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { clearDatabase, connect } from "./dbHandler";
-import { Question } from "./../../models/questionModel";
+import { clearDatabase, connect } from "../utils/dbHandler";
+import { Question } from "../../models/questionModel";
 import ObjectID from "bson-objectid";
 
 // create an id with the type ObjectId
@@ -20,6 +20,10 @@ afterEach(async () => {
   await clearDatabase();
 });
 
+beforeEach(async () => {
+  await createQuestion();
+});
+
 /**
  * Remove and close the db and server
  */
@@ -37,6 +41,7 @@ describe("createQuestion", () => {
    */
   it("should create question", async () => {
     const result = await Question.create(validQuestion);
+    expect(result._id).toBeDefined();
     expect(result).toMatchObject({ title: validQuestion.title });
   });
 
@@ -44,7 +49,6 @@ describe("createQuestion", () => {
    * should exist after created
    */
   it("exists after created", async () => {
-    await Question.create(validQuestion);
     const result = await Question.findOne();
 
     expect(result).toHaveProperty("title", validQuestion.title);
@@ -70,3 +74,8 @@ const invalidQuestion = [
   { body: "a", author: id },
   { title: "a", author: id },
 ];
+
+const createQuestion = async () => {
+  const result = await Question.create(validQuestion);
+  return result;
+};
