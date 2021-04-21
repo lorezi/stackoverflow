@@ -37,11 +37,5 @@ questionSchema.index(
   { weights: { title: 5, body: 3 } }
 );
 
-questionSchema.query.searchQuestion = function (body) {
-  const regex = new RegExp(body, "ig");
-  return this.find({
-    $or: [{ title: regex }, { body: regex }],
-  });
-};
 // Create model
 export const Question: Model<IQuestion> = model("Question", questionSchema);

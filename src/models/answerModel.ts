@@ -25,11 +25,4 @@ const answerSchema: Schema = new Schema({
 
 answerSchema.index({ answer: "text" });
 
-answerSchema.query.searchAnswer = function (body) {
-  const regex = new RegExp(body, "ig");
-  return this.find({
-    answer: { $regex: regex },
-  });
-};
-
 export const Answer: Model<IAnswer> = model("Answer", answerSchema);
