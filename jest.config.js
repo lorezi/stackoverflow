@@ -9,5 +9,8 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
   testEnvironment: "node",
-  testTimeout: 30000,
+  testTimeout: 90000,
+  // preset: "@shelf/jest-mongodb",
+  // watchPathIgnorePatterns: ["globalConfig"],
+  // verbose: true,
 };

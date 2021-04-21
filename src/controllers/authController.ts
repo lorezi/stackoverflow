@@ -107,7 +107,10 @@ export const protect = catchAsync(
     }
 
     // 2. Verification token
-    const secret = process.env.JWT_SECRET!;
+    // const secret = process.env.JWT_SECRET!;
+
+    // Dirty hack to generate secret for testing purpose
+    const secret = process.env.JWT_SECRET ? process.env.JWT_SECRET : "test";
     const decoded = <any>jwt.verify(token, secret);
 
     // 3. Check if user still exists

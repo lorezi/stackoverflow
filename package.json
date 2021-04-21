@@ -15,7 +15,8 @@
     "start": "nodemon --exec ts-node --files src/main.ts",
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
-    "test": "jest --runInBand --detectOpenHandles --watch",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:watch": "jest --detectOpenHandles --watch --coverage",
     "clean": "rm -rf dist build package",
     "ts-node": "ts-node",
     "docs": "typedoc --entryPoints src/main.ts",
@@ -29,8 +30,10 @@
     "esbuild-node:watch": "esbuild src/cli.ts --bundle --watch --sourcemap=external --outfile=dist/esbuild/cli.js"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.4",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
+    "@types/mongodb": "^3.6.12",
     "@types/node": "^14.14.35",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
@@ -39,6 +42,7 @@
     "esbuild": "^0.11.11",
     "eslint": "^7.22.0",
     "jest": "^26.6.3",
+    "mongodb": "^3.6.6",
     "mongodb-memory-server": "^6.9.6",
     "nodemon": "^2.0.7",
     "supertest": "^6.1.3",

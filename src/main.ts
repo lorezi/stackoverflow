@@ -11,7 +11,6 @@ process.on("uncaughtException", (err) => {
 dotenv.config({ path: __dirname + "/.env" });
 
 const DB: string = process.env.DATABASE!;
-// console.log(DB)
 
 mongoose
   .connect(DB, {

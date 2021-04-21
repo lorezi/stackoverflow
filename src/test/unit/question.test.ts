@@ -16,19 +16,15 @@ beforeAll(async () => {
 /**
  * Clear all test data after every test.
  */
-afterEach(async () => {
-  await clearDatabase();
-});
-
 beforeEach(async () => {
-  await createQuestion();
+  await clearDatabase();
 });
 
 /**
  * Remove and close the db and server
  */
 // afterAll(async () => {
-//   await new Promise<void>((resolve) => setTimeout(() => resolve(), 10000));
+//   await closeDatabase();
 // });
 
 /**
@@ -49,10 +45,10 @@ describe("createQuestion", () => {
    * should exist after created
    */
   it("exists after created", async () => {
+    await Question.create(validQuestion);
     const result = await Question.findOne();
 
     expect(result).toHaveProperty("title", validQuestion.title);
-    expect(result.body).toBe(validQuestion.body);
   });
 
   /**
@@ -67,15 +63,10 @@ describe("createQuestion", () => {
   });
 });
 
-const validQuestion = { title: "a", body: "b", author: id };
+const validQuestion = { title: "Jest", body: "Jest for testing", author: id };
 
 const invalidQuestion = [
   { title: "a", body: "b" },
   { body: "a", author: id },
   { title: "a", author: id },
 ];
-
-const createQuestion = async () => {
-  const result = await Question.create(validQuestion);
-  return result;
-};

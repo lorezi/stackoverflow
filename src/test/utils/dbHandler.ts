@@ -7,7 +7,12 @@ const mongod = new MongoMemoryServer();
  * Connect to the in-memory database
  */
 export const connect = async (): Promise<void> => {
+  await mongoose.disconnect();
+
   const uri = await mongod.getUri();
+
+  // const uri =
+  //   "mongodb+srv://floz:HtYdrhIG00WWZaQX@cluster0.yawir.mongodb.net/test?retryWrites=true&w=majority";
   await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -20,21 +25,19 @@ export const connect = async (): Promise<void> => {
  * Drop database, close the connection and stop mongoD
  */
 export const closeDatabase = async (): Promise<void> => {
+  await mongoose.disconnect();
+  await mongod.stop();
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongod.stop();
 };
 
 /**
  * Remove all the data for all db collections
  */
 export const clearDatabase = async (): Promise<void> => {
-  const collections = mongoose.connection.collections;
+  const collections = await mongoose.connection.db.collections();
 
-  for (const key in collections) {
-    if (Object.prototype.hasOwnProperty.call(collections, key)) {
-      const collection = collections[key];
-      await collection.deleteMany({});
-    }
+  for (const collection of collections) {
+    await collection.deleteMany({});
   }
 };

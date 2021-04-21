@@ -1,16 +1,9 @@
-import mongoose, {
-  Types,
-  Document,
-  Schema,
-  Model,
-  model,
-  Query,
-} from "mongoose";
+import mongoose, { Document, Schema, Model, model, Query } from "mongoose";
 import * as bcrypt from "bcrypt";
 import validator from "validator";
 
 export interface IUserDocument extends Document {
-  _id: Types.ObjectId;
+  // _id: Types.ObjectId;
   firstName: string;
   lastName: string;
   email: string;
