@@ -11,8 +11,6 @@ export const connect = async (): Promise<void> => {
 
   const uri = await mongod.getUri();
 
-  // const uri =
-  //   "mongodb+srv://floz:HtYdrhIG00WWZaQX@cluster0.yawir.mongodb.net/test?retryWrites=true&w=majority";
   await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
