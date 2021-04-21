@@ -13,49 +13,6 @@ beforeEach(async () => {
   await clearDatabase();
 });
 
-describe("POST /users/signup", () => {
-  it("should create a new user", async (done) => {
-    await agent
-      .post("/users/signup")
-      .send(newUser)
-      .expect(201)
-      .then((res) => {
-        expect(res.body.data.user).toBeTruthy();
-      });
-    done();
-  });
-});
-
-describe("POST /users/login", () => {
-  it("should return 200 if token is correct", async () => {
-    let token: any;
-
-    // seed database by creating new user
-    await agent
-      .post("/users/signup")
-      .send(newUser)
-      .expect(201)
-      .then((res) => {
-        expect(res.body.data.user).toBeTruthy();
-      });
-
-    // login
-    await agent
-      .post("/users/login")
-      .send(login)
-      .expect(200)
-      .then((res) => {
-        expect(res.body.data.user).toBeTruthy();
-        token = res.body.token;
-      });
-
-    const res = await agent
-      .get("/questions")
-      .set("authorization", `Bearer ${token}`);
-    expect(res.status).toBe(200);
-  });
-});
-
 describe("auth middleware", () => {
   let token: string;
   let question;

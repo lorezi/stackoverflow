@@ -22,23 +22,6 @@ describe("signToken", () => {
   });
 });
 
-// describe("auth middleware", () => {
-//   it("should generate a valid token", async () => {
-//     const user = await User.create(newUser);
-//     const statusCode = 200;
-//     const req: any = {
-//       secure: "",
-//       headers: {
-//         "x-forwarded-proto": "",
-//       },
-//     };
-//     let res: any;
-
-//     createSendToken(user, statusCode, req, res);
-//     expect(req.statusCode).toBe(statusCode);
-//   });
-// });
-
 // create an id with the type ObjectId
 const id = ObjectID.createFromHexString("08900823AD32DEAA09080990");
 

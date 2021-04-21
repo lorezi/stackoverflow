@@ -5,6 +5,13 @@ import ObjectID from "bson-objectid";
 
 // create an id with the type ObjectId
 const id = ObjectID.createFromHexString("08900823AD32DEAA09080990");
+const validQuestion = { title: "Jest", body: "Jest for testing", author: id };
+
+const invalidQuestion = [
+  { title: "Jest", body: "What is testing" },
+  { body: "What is testing", author: id },
+  { title: "Jest", author: id },
+];
 
 /**
  * Connect to a new in-memory database before running any tests.
@@ -21,17 +28,9 @@ beforeEach(async () => {
 });
 
 /**
- * Remove and close the db and server
- */
-// afterAll(async () => {
-//   await closeDatabase();
-// });
-
-/**
  * Question create test suite
  */
 describe("createQuestion", () => {
-  jest.useFakeTimers();
   /**
    * Tests that a valid question can be created through the Question model without throwing any errors.
    */
@@ -62,11 +61,3 @@ describe("createQuestion", () => {
     });
   });
 });
-
-const validQuestion = { title: "Jest", body: "Jest for testing", author: id };
-
-const invalidQuestion = [
-  { title: "a", body: "b" },
-  { body: "a", author: id },
-  { title: "a", author: id },
-];

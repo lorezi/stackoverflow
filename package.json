@@ -16,7 +16,7 @@
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest --runInBand --detectOpenHandles",
-    "test:watch": "jest --detectOpenHandles --watch --coverage",
+    "test:watch": "jest --detectOpenHandles --watch",
     "clean": "rm -rf dist build package",
     "ts-node": "ts-node",
     "docs": "typedoc --entryPoints src/main.ts",
