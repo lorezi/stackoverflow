@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>stackoverflow</title>
+	<meta name="description" content="Documentation for stackoverflow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">stackoverflow</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>stackoverflow</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#stackoverflow-documentation" id="stackoverflow-documentation" style="color: inherit; text-decoration: none;">
+					<h1>Stackoverflow Documentation</h1>
+				</a>
+				<p>The stackoverflow task is basic implementation of <a href="https://stackoverflow.com">Stackoverflow</a>
+				This project is a clone of <a href="https://stackoverflow.com">Stackoverflow</a> a famous Q/A website.</p>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>API Documentation <a href="https://documenter.getpostman.com/view/15496509/TzJvfHSi">here</a></p>
+				<hr>
+				<p><strong>API</strong> built with Node + Express + MongoDB + Mongoose + Socket.io + Jest.</p>
+				<p><strong>WebApp</strong> built with React + Redux.</p>
+				<p>Written in TypeScript.</p>
+				<hr>
+				<a href="#start-development" id="start-development" style="color: inherit; text-decoration: none;">
+					<h2>Start Development</h2>
+				</a>
+				<p>Kindly clone the repo ``</p>
+				<a href="#setup" id="setup" style="color: inherit; text-decoration: none;">
+					<h3>Setup</h3>
+				</a>
+				<p>Create a .env file in the root directory and add the following properties</p>
+				<pre><code class="language-markdown"><span style="color: #000000">PORT=? DATABASE=? JWT_SECRET=?</span>
+</code></pre>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h3>Installation</h3>
+				</a>
+				<p>To install the necessary packages, in your root folder directory kindly run</p>
+				<pre><code class="language-bash"><span style="color: #008000"># Install dependencies</span>
+<span style="color: #000000">$ yarn install</span>
+
+<span style="color: #008000"># Start the app</span>
+<span style="color: #000000">$ yarn start</span>
+
+<span style="color: #008000"># Run test</span>
+<span style="color: #000000">$ yarn </span><span style="color: #795E26">test</span>
+</code></pre>
+				<hr>
+				<a href="#api-endpoints" id="api-endpoints" style="color: inherit; text-decoration: none;">
+					<h2>API Endpoints</h2>
+				</a>
+				<a href="#base-url---httplocalhost5000" id="base-url---httplocalhost5000" style="color: inherit; text-decoration: none;">
+					<h4>Base Url - <code>http://localhost:5000/</code></h4>
+				</a>
+				<a href="#user" id="user" style="color: inherit; text-decoration: none;">
+					<h4>User</h4>
+				</a>
+				<ul>
+					<li><code>POST /users/signup</code></li>
+					<li><code>POST /users/login</code></li>
+					<li><code>GET /users/logout</code></li>
+				</ul>
+				<a href="#question" id="question" style="color: inherit; text-decoration: none;">
+					<h4>Question</h4>
+				</a>
+				<ul>
+					<li><code>GET /questions</code></li>
+					<li><code>GET /questions/:id</code></li>
+					<li><code>PATCH /questions/:id/up-vote</code></li>
+					<li><code>PATCH /questions/:id/down-vote</code></li>
+					<li><code>POST /questions/:id/reply</code></li>
+					<li><code>POST /questions/:id/subscribe</code></li>
+				</ul>
+				<a href="#🎩-author" id="🎩-author" style="color: inherit; text-decoration: none;">
+					<h2>🎩 Author</h2>
+				</a>
+				<ul>
+					<li>Lawrence 😁😁😁</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#server" class="tsd-kind-icon">server</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
