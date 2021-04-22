@@ -1,7 +1,6 @@
 # Stackoverflow Documentation
 
-The stackoverflow task is basic implementation of [Stackoverflow](https://stackoverflow.com)
-This project is a clone of [Stackoverflow](https://stackoverflow.com) a famous Q/A website.
+The stackoverflow task is basic implementation of [Stackoverflow](https://stackoverflow.com).
 
 ## Documentation
 
