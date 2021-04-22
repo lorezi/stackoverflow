@@ -19,7 +19,7 @@ const signToken = (id: Types.ObjectId): string => {
     { id },
     process.env.JWT_SECRET ? process.env.JWT_SECRET : "test",
     {
-      expiresIn: "24h",
+      expiresIn: process.env.JWT_EXPIRES_IN,
     }
   );
 };

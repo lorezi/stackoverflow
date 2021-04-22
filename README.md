@@ -24,7 +24,11 @@ Kindly clone the repo ``
 Create a .env file in the root directory and add the following properties
 
 ```markdown
-PORT=? DATABASE=? JWT_SECRET=?
+PORT=?
+DATABASE=?
+JWT_SECRET=?
+JWT_EXPIRES_IN=?
+JWT_COOKIE_EXPIRES_IN=?
 ```
 
 ### Installation
@@ -46,7 +50,7 @@ $ yarn test
 
 ## API Endpoints
 
-#### Base Url - `http://localhost:5000/`
+#### Base Url - `http://localhost:{PORT}/`
 
 #### User
 
