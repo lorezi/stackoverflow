@@ -8,7 +8,12 @@ import catchAsync from "../utils/catchAsync";
 
 dotenv.config({ path: __dirname + "/.env" });
 
-export const signToken = (id: Types.ObjectId): string => {
+/**
+ *
+ * @param id
+ * @returns signed jwt string
+ */
+const signToken = (id: Types.ObjectId): string => {
   // Dirty hack: To generate token for testing purpose
   return jwt.sign(
     { id },
@@ -19,7 +24,14 @@ export const signToken = (id: Types.ObjectId): string => {
   );
 };
 
-export const createSendToken = (
+/**
+ *
+ * @param user
+ * @param statusCode
+ * @param req
+ * @param res
+ */
+const createSendToken = (
   user: IUser,
   statusCode: number,
   req: Request,
@@ -63,6 +75,8 @@ export const signup = catchAsync(
     createSendToken(newUser, 201, req, res);
   }
 );
+
+/* */
 export const login = catchAsync(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { username, password } = req.body;

@@ -1,7 +1,7 @@
 import { errorHandler } from "./controllers/errorController";
 import express from "express";
 import questionRoutes from "./routes/questionRoutes";
-import userRoutes from "./routes/userRoutes";
+import userRoutes from "./routes/authRoutes";
 import AppError from "./utils/AppError";
 import cookieParser from "cookie-parser";
 import expressMongoSanitize from "express-mongo-sanitize";

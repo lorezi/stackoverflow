@@ -5,7 +5,6 @@ export interface ISubscription extends Document {
   subscriber: Types.ObjectId;
   question: Types.ObjectId;
   channel: string;
-  isActive: boolean;
   createdAt: Date;
 }
 
@@ -23,10 +22,6 @@ const subscriptionSchema: Schema = new Schema({
   channel: {
     type: String,
     required: true,
-  },
-  isActive: {
-    type: Boolean,
-    default: true,
   },
   createdAt: {
     type: Date,
