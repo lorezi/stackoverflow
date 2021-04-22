@@ -5,7 +5,6 @@ import { ObjectID } from "mongodb";
 import { Question } from "../../models/questionModel";
 
 const agent = request(app);
-
 beforeAll(async () => {
   await connect();
 });

@@ -69,6 +69,7 @@ export const upVote = catchAsync(
       return next(new AppError(`No doc found with the ID: ${id}`, 404));
     }
     question.vote += 1;
+    question.updatedAt = new Date(Date.now());
     question.save();
 
     await Vote.create({
@@ -95,6 +96,7 @@ export const downVote = catchAsync(
       return next(new AppError(`No doc found with the ID: ${id}`, 404));
     }
     question.vote -= 1;
+    question.updatedAt = new Date(Date.now());
     question.save();
 
     await Vote.create({

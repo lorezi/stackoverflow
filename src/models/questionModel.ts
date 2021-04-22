@@ -5,6 +5,7 @@ export interface IQuestion extends Document {
   body: string;
   vote: number;
   createdAt: Date;
+  updatedAt: Date;
   author: Types.ObjectId;
 }
 
@@ -23,7 +24,11 @@ const questionSchema: Schema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now(),
   },
   author: {
     type: Types.ObjectId,

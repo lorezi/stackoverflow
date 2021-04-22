@@ -9,9 +9,14 @@ import catchAsync from "../utils/catchAsync";
 dotenv.config({ path: __dirname + "/.env" });
 
 export const signToken = (id: Types.ObjectId): string => {
-  return jwt.sign({ id }, process.env.JWT_SECRET!, {
-    expiresIn: "24h",
-  });
+  // Dirty hack: To generate token for testing purpose
+  return jwt.sign(
+    { id },
+    process.env.JWT_SECRET ? process.env.JWT_SECRET : "test",
+    {
+      expiresIn: "24h",
+    }
+  );
 };
 
 export const createSendToken = (
@@ -102,7 +107,8 @@ export const protect = catchAsync(
     }
 
     // 2. Verification token
-    const secret = process.env.JWT_SECRET!;
+    // Dirty hack: To generate token for testing purpose
+    const secret = process.env.JWT_SECRET ? process.env.JWT_SECRET : "test";
     const decoded = <any>jwt.verify(token, secret);
 
     // 3. Check if user still exists

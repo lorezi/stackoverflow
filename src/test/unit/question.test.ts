@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { clearDatabase, connect } from "../utils/dbHandler";
 import { Question } from "../../models/questionModel";
-import ObjectID from "bson-objectid";
+import { ObjectID } from "mongodb";
 
 // create an id with the type ObjectId
 const id = ObjectID.createFromHexString("08900823AD32DEAA09080990");

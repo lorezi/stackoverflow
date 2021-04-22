@@ -80,7 +80,7 @@ userSchema.pre<IUser>("save", async function (next) {
 
 // Query middleware for for any word starting with find
 userSchema.pre<Query<IUser, IUser>>(/^find/, function (next: any) {
-  this.find({ active: { $ne: false } });
+  this.find({});
   next();
 });
 

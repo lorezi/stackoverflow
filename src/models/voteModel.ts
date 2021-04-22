@@ -1,9 +1,10 @@
-import { Document, Types, Schema, Model, model } from "mongoose";
+import { Document, Types, Schema, Model, model, Date } from "mongoose";
 
 export interface IVote extends Document {
   user: Types.ObjectId;
   question: Types.ObjectId;
   type: string;
+  createdAt: Date;
 }
 
 const voteSchema: Schema = new Schema({
@@ -21,6 +22,10 @@ const voteSchema: Schema = new Schema({
     type: String,
     enum: ["up", "down"],
     trim: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
   },
 });
 

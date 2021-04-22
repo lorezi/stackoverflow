@@ -4,6 +4,7 @@ export interface IAnswer extends Document {
   answer: string;
   user: Types.ObjectId;
   question: Types.ObjectId;
+  createdAt: Date;
 }
 
 const answerSchema: Schema = new Schema({
@@ -20,6 +21,10 @@ const answerSchema: Schema = new Schema({
     type: Types.ObjectId,
     ref: "Question",
     required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
   },
 });
 
