@@ -11,8 +11,6 @@ API Documentation [here](https://documenter.getpostman.com/view/15496509/TzJvfHS
 
 **API** built with Node + Express + MongoDB + Mongoose + Socket.io + Jest.
 
-**WebApp** built with React + Redux.
-
 Written in TypeScript.
 
 ---
