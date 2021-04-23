@@ -1,1 +1,1 @@
-window.searchData = {"kinds":{"32":"Variable"},"rows":[{"id":0,"kind":32,"name":"server","url":"modules.html#server","classes":"tsd-kind-variable"}],"index":{"version":"2.3.9","fields":["name","parent"],"fieldVectors":[["name/0",[0,2.877]],["parent/0",[]]],"invertedIndex":[["server",{"_index":0,"name":{"0":{}},"parent":{}}]],"pipeline":[]}}
+window.searchData = {"kinds":{},"rows":[],"index":{"version":"2.3.9","fields":["name","parent"],"fieldVectors":[],"invertedIndex":[],"pipeline":[]}}
